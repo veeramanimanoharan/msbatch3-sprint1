@@ -49,33 +49,47 @@ public class SuperLeagueSprint1Application {
 	            		.collect(Collectors.toList());
 	            
 //***************************Todays Sale******************************
+	            System.out.println("--------------------------------------------------------------------");
 	             System.out.println("Todays Sale - Date"+LocalDate.now());
+	             System.out.println("--------------------------------------------------------------------");
 	             todayProds.stream().forEach(it->System.out.println(it.name+"             | "+it.getId()+"             | "+it.getTotal_amount()));;
 				 System.out.println("End");
-//	***********************Today Top 5 Sale*******************************				 
+//	***********************Today Top 5 Sale*******************************		
+				 System.out.println("--------------------------------------------------------------------");
 				 System.out.println("Top 5 Sale Overall");
+				 System.out.println("--------------------------------------------------------------------");
 				 List<ItemModel> sortedListdec = prods.stream()
 				            .sorted(Comparator.comparingInt(ItemModel::getTotal_amount).reversed())
 				            .collect(Collectors.toList());
 				 
 				 sortedListdec.stream().limit(5).forEach(it->System.out.println(it.name+"             | "+it.getId()+"             | "+it.getTotal_amount()));
 //***********************This Month Top 5 Sale*******************************				 
+				 System.out.println("--------------------------------------------------------------------");
 				 System.out.println("Month Top 5 Sale");
+				 System.out.println("--------------------------------------------------------------------");
 				 List<ItemModel> sortedListdecMonth = thisMonthProds.stream()
 				            .sorted(Comparator.comparingInt(ItemModel::getTotal_amount).reversed())
 				            .collect(Collectors.toList());
 				 
 				 sortedListdecMonth.stream().limit(5).forEach(it->System.out.println(it.name+"             | "+it.getId()+"             | "+it.getTotal_amount()));
 				 
-//***********************1 item total sale*******************************				 
+//***********************1 item total sale*******************************	
+				 System.out.println("--------------------------------------------------------------------");
 				 System.out.println("1 item total sale");
-				 List<ItemModel> oneitem = prods.stream()
+				 System.out.println("--------------------------------------------------------------------");
+				 ItemModel oneitem = new ItemModel();
+				 prods.stream()
 //						 .peek(it->System.out.println(it.getName()))
 						 .filter(it->it.getId()==20)
 //						 .peek(it->System.out.println("veera"))
-						 .collect(Collectors.toList());
+						 .forEach(it->{
+							 oneitem.setName(it.getName());
+				 oneitem.setId(it.getId());
+				 oneitem.setTotal_amount(it.getTotal_amount()+oneitem.getTotal_amount());
+						 });
+//						 .collect(Collectors.toList());
 				 
-				 oneitem.forEach(it->System.out.println(it.name+"             | "+it.getId()+"             | "+it.getTotal_amount()));
+				 System.out.println(oneitem.name+"             | "+oneitem.getId()+"             | "+oneitem.getTotal_amount());
 				 
 	        }
 	        
