@@ -4,13 +4,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-
 import com.opencsv.CSVReader;
 
 public class CsvReader {
@@ -44,9 +41,7 @@ public class CsvReader {
 			pro.setDt(localDate);
 			prods.add(pro);
 //		System.out.println(pro.toString());
- //			proService.save(pro);
-			
-			
+
 	}
 	
 		

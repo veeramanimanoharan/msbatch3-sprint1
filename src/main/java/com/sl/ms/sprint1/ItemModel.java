@@ -1,7 +1,6 @@
 package com.sl.ms.sprint1;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class ItemModel {
 	int id;
